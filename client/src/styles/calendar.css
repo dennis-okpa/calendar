@@ -1,0 +1,24 @@
+.calendar {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Lato", sans-serif;
+  color: #444;
+  padding: 0;
+  margin: 0;
+  width: 100%; }
+  .calendar .weekday {
+    border: 1px solid #ccc;
+    text-align: center; }
+  .calendar .day {
+    border: 1px solid #ccc; }
+    .calendar .day table {
+      width: 100%; }
+      .calendar .day table thead td {
+        padding: 2px 1px;
+        text-align: right; }
+      .calendar .day table tbody td {
+        height: 50px; }
+  .calendar .greyDay {
+    color: #ccc !important; }
+  .calendar .today {
+    color: #ff0000 !important; }
