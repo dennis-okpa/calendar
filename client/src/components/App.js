@@ -3,6 +3,7 @@ import '../styles/App.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchEvents } from '../actions/events';
+import Calendar from '../containers/calendar';
 
 class App extends Component {
     componentWillMount(){
@@ -12,6 +13,9 @@ class App extends Component {
         console.log('props', this.props);
         return (
             <div className="App">
+                <main role="main" className="container">
+                    <Calendar />
+                </main>
                 <h1>Events</h1>
                 <ul>
                     {this.props.events.map(user => <li key={user.id}>{user.username}</li>)}
