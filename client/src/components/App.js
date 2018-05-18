@@ -18,7 +18,7 @@ class App extends Component {
                 </main>
                 <h1>Events</h1>
                 <ul>
-                    {this.props.events.map(user => <li key={user.id}>{user.username}</li>)}
+                    {this.props.events.map(user => <li key={user.id}>{user.summary}</li>)}
                 </ul>
             </div>
         )
