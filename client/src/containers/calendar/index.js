@@ -13,7 +13,7 @@ export class Calendar extends React.Component {
   };
   componentDidMount(){
     const { calendarDate } = this.props;
-    this.props.actions.fetchEvents(calendarDate);
+    this.props.actions.fetchEvents(calendarDate.getMonth()+1, calendarDate.getFullYear());
   }
   render() {
     return (
