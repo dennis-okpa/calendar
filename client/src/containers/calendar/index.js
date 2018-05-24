@@ -12,25 +12,29 @@ export class Calendar extends React.Component {
     return calendarDate.toLocaleString(locale, { month: "long" });
   };
   componentDidMount(){
-     this.props.actions.fetchEvents();
+    const { calendarDate } = this.props;
+    this.props.actions.fetchEvents(calendarDate);
   }
   render() {
     return (
       <CalendarDiv
         monthTitle={this.getMonth()}
-        calendarDate={this.props.calendarDate} />
+        calendarDate={this.props.calendarDate}
+        events={this.props.events}/>
     );
   }
 }
 
 Calendar.propTypes = {
   calendarDate: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  events: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    calendarDate: state.calendar.date
+    calendarDate: state.calendar.date,
+    events: state.events.items
   };
 }
 
