@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Month from './Month';
+import Month from '../../containers/calendar/Month';
 
 // Since this component is simple and static, there's no parent container for it.
 const Calendar = ({calendarDate, monthTitle, events}) => (

@@ -4,7 +4,6 @@ import Calendar from '../containers/calendar';
 
 class App extends Component {
     render() {
-        console.log('props', this.props);
         return (
             <div className="App">
                 <main role="main" className="container">

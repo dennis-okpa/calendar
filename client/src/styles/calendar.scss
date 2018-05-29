@@ -10,9 +10,11 @@
   .weekday {
     border:1px solid #ccc;
     text-align: center;
+    width:200px;
   }
   .day {
     border:1px solid #ccc;
+    vertical-align: top;
     table {
       width:100%;
       thead {

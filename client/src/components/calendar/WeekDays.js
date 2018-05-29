@@ -1,12 +1,13 @@
 import React from 'react';
 import Day from './Day';
+import { getShortWeekDays } from '../../utils/calendar/week';
 
 // Since this component is simple and static, there's no parent container for it.
 class WeekDays extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+      days: getShortWeekDays
     };
   }
   render() {

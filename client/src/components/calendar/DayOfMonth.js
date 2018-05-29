@@ -1,7 +1,8 @@
 import React from 'react';
+import { getGUID } from '../../utils/common/strings';
 
 // Since this component is simple and static, there's no parent container for it.
-const Day = ({ data }) => {
+const Day = ({ data, events }) => {
   const { day, currentMonth, currentDay } = data;
   let className = 'day';
   if(!currentMonth){
@@ -10,6 +11,11 @@ const Day = ({ data }) => {
   if(currentDay){
     className += " today";
   }
+
+  const eventList = events.map(event=>(
+    <li key={getGUID()}>{event.summary}</li>
+  ));
+
   return (
     <td className={className}>
       <table>
@@ -20,7 +26,7 @@ const Day = ({ data }) => {
         </thead>
         <tbody>
           <tr>
-            <td />
+            <td>{eventList}</td>
           </tr>
         </tbody>
       </table>

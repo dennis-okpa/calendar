@@ -8,9 +8,11 @@
   width: 100%; }
   .calendar .weekday {
     border: 1px solid #ccc;
-    text-align: center; }
+    text-align: center;
+    width: 200px; }
   .calendar .day {
-    border: 1px solid #ccc; }
+    border: 1px solid #ccc;
+    vertical-align: top; }
     .calendar .day table {
       width: 100%; }
       .calendar .day table thead td {

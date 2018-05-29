@@ -1,6 +1,7 @@
 export default {
   events: {
-    items: []
+    items: [],
+    data: {}
   },
   calendar: {
     date: new Date()
