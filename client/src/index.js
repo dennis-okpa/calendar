@@ -6,6 +6,7 @@ import './styles/navbar.css';
 import './styles/navbar-top.css';
 import './styles/calendar.css';
 import './styles/index.css';
+import "./styles/popupS.css";
 import Provider from './components/Provider';
 import registerServiceWorker from './registerServiceWorker';
 

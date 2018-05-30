@@ -12,7 +12,8 @@
     width: 200px; }
   .calendar .day {
     border: 1px solid #ccc;
-    vertical-align: top; }
+    vertical-align: top;
+    padding-bottom: 10px; }
     .calendar .day table {
       width: 100%; }
       .calendar .day table thead td {
