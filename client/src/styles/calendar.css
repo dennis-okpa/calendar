@@ -19,6 +19,8 @@
       .calendar .day table thead td {
         padding: 2px 1px;
         text-align: right; }
+      .calendar .day table thead a {
+        cursor: pointer; }
       .calendar .day table tbody td {
         height: 50px; }
   .calendar .greyDay {

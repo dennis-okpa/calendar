@@ -1,6 +1,10 @@
 import React from 'react';
 import Events from './Events';
 
+const pop = (e) => {
+  console.log(e.target.dataset.date);
+};
+
 const getClassName = (currentMonth, currentDay) => {
   let className = 'day';
   if(!currentMonth){
@@ -20,7 +24,7 @@ const Day = ({ data, events }) => {
       <table>
         <thead>
           <tr>
-            <td>{day.getDate()}</td>
+            <td><a className="add_event" data-date={day.getTime()} onClick={pop}>{day.getDate()}</a></td>
           </tr>
         </thead>
         <tbody>

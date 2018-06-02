@@ -1,11 +1,6 @@
 import React from 'react';
 import WeekDays from './WeekDays';
 import WeekOfMonth from './WeekOfMonth';
-import popupS from 'popups';
-
-popupS.alert({
-  content: 'Hello World!'
-});
 
 // Since this component is simple and static, there's no parent container for it.
 class Month extends React.Component {
