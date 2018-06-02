@@ -5,5 +5,8 @@ export default {
   },
   calendar: {
     date: new Date()
+  },
+  modal: {
+    show: false
   }
 };

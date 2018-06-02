@@ -1,5 +1,5 @@
 import React from 'react';
-import DayOfMonth from './DayOfMonth';
+import DayOfMonth from '../../containers/calendar/DayOfMonth';
 import { getDateStamp } from '../../utils/events/data';
 
 const Week = ({ weekDays, eventData }) => {
