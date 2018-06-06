@@ -6,7 +6,9 @@ export default function(state = initialState.modal, action){
       case SHOW_MODAL:
             return {
               ...state,
-              show: true
+              show: true,
+              title: action.payload.title,
+              data: action.payload.data
             };
         case HIDE_MODAL:
             return {

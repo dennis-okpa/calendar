@@ -10,20 +10,24 @@ export class CustomModal extends React.Component {
     return (
       <Modal
         show={this.props.show}
-        handleClose={this.props.actions.handleClose} />
+        title={this.props.title}
+        handleClose={this.props.actions.handleClose}>
+        {this.props.children}
+      </Modal>
     );
   }
 }
 
 CustomModal.propTypes = {
   show: PropTypes.bool.isRequired,
-  actions: PropTypes.object.isRequired,
-  handleClose: PropTypes.func.isRequired
+  title: PropTypes.string.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    show: state.modal.show
+    show: state.modal.show,
+    title: state.modal.title
   };
 }
 

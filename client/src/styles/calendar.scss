@@ -4,20 +4,20 @@
   font-weight: 400;
   font-family: "Lato", sans-serif;
   color: #444;
-  padding:0;
-  margin:0;
-  width:100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
   .weekday {
-    border:1px solid #ccc;
+    border: 1px solid #ccc;
     text-align: center;
-    width:200px;
+    width: 200px;
   }
   .day {
     border: 1px solid #ccc;
     vertical-align: top;
     padding-bottom: 10px;
     table {
-      width:100%;
+      width: 100%;
       thead {
         td {
           padding: 2px 1px;
@@ -29,15 +29,17 @@
       }
       tbody {
         td {
-          height:50px;
+          height: 50px;
         }
       }
     }
   }
-  .greyDay {
-    color:#ccc !important;
-  }
-  .today {
-    color:#ff0000 !important;
-  }
+}
+
+.today table thead a {
+  color: #ff0000;
+}
+
+.greyDay table thead a {
+  color: #ccc;
 }

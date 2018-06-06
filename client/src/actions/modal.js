@@ -1,9 +1,10 @@
 import { SHOW_MODAL, HIDE_MODAL } from '../constants/actions';
 
-export const handleShow = (e) => ({
+export const handleShow = (data) => ({
   type: SHOW_MODAL,
   payload: {
-      date: e.target.dataset.date
+      title: "Add Event",
+      data
   }
 });
 

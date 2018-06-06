@@ -2,26 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import Day from '../../components/calendar/DayOfMonth';
+import EventForm from '../../components/calendar/EventForm';
 import * as actions from '../../actions/events';
 
-export class DayOfMonth extends React.Component {
+export class EventFormView extends React.Component {
   render() {
     return (
-      <Day
-        data={this.props.data} events={this.props.events}
-        addEvent={this.props.actions.addEvent} />
+      <EventForm data={this.props.data} />
     );
   }
 }
 
-DayOfMonth.propTypes = {
+EventFormView.propTypes = {
   actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    show: state.modal.show
+    data: state.modal.data || {}
   };
 }
 
@@ -34,4 +32,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(DayOfMonth);
+)(EventFormView);

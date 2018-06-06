@@ -23,7 +23,9 @@
         cursor: pointer; }
       .calendar .day table tbody td {
         height: 50px; }
-  .calendar .greyDay {
-    color: #ccc !important; }
-  .calendar .today {
-    color: #ff0000 !important; }
+
+.today table thead a {
+  color: #ff0000; }
+
+.greyDay table thead a {
+  color: #ccc; }
