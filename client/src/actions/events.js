@@ -23,7 +23,8 @@ export const handleSave = () => (dispatch, getState) => {
 };
 
 export const addEvent = (e) => dispatch => {
-  dispatch(handleShow(Object.assign(initialState.events.item,{
+  dispatch(handleShow({
+    ...initialState.events.item,
     date: new Date(Number(e.target.dataset.date))
-  })));
+  }));
 };
