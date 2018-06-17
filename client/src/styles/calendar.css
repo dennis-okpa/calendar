@@ -29,3 +29,12 @@
 
 .greyDay table thead a {
   color: #ccc; }
+
+.calendar_events .modal-dialog, .calendar_events .form-control {
+  font-size: 0.95em; }
+
+.calendar_events label {
+  font-size: 0.8em; }
+
+.calendar_events .react-calendar {
+  font-size: 0.8em; }

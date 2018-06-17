@@ -43,3 +43,15 @@
 .greyDay table thead a {
   color: #ccc;
 }
+
+.calendar_events {
+  .modal-dialog, .form-control {
+    font-size: 0.95em;
+  }
+  label {
+    font-size: 0.8em;
+  }
+  .react-calendar {
+    font-size: 0.8em;
+  }
+}

@@ -1,18 +1,29 @@
 import { FETCH_EVENTS } from '../constants/actions';
 import initialState from '../constants/initialState';
-import { handleShow } from './modal';
+import { handleShow, handleClose } from './modal';
+import { getAllMonth, create } from '../fetch/events';
+import { refresh } from './calendar';
 
 export const fetchEvents = (month, year) => dispatch => {
-    fetch('/events?month='+month+'&year='+year)
-    .then(res => res.json())
-    .then(data => dispatch({
-        type: FETCH_EVENTS,
-        payload: data
-    }));
+  getAllMonth(month, year).then(data => {
+    dispatch({
+      type: FETCH_EVENTS,
+      payload: data
+    })
+  });
+};
+
+export const handleSave = () => (dispatch, getState) => {
+  const { data } = getState().modal;
+  console.log('data', data);
+  create(data).then(response => {
+    dispatch(handleClose());
+    dispatch(refresh());
+  });
 };
 
 export const addEvent = (e) => dispatch => {
   dispatch(handleShow(Object.assign(initialState.events.item,{
-    date: e.target.dataset.date
+    date: new Date(Number(e.target.dataset.date))
   })));
 };

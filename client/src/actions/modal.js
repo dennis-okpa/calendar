@@ -1,7 +1,7 @@
-import { SHOW_MODAL, HIDE_MODAL } from '../constants/actions';
+import * as actions from '../constants/actions';
 
 export const handleShow = (data) => ({
-  type: SHOW_MODAL,
+  type: actions.SHOW_MODAL,
   payload: {
       title: "Add Event",
       data
@@ -9,5 +9,12 @@ export const handleShow = (data) => ({
 });
 
 export const handleClose = () => ({
-    type: HIDE_MODAL
+    type: actions.HIDE_MODAL
+});
+
+export const addInput = (name, value) => ({
+  type: actions.ADD_TO_MODAL,
+  payload: {
+    name, value
+  }
 });

@@ -1,15 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Modal from '../../containers/common/Modal';
 import Month from '../../containers/calendar/Month';
 import EventForm from './EventForm';
 
 // Since this component is simple and static, there's no parent container for it.
-const Calendar = ({calendarDate, monthTitle, events}) => (
+const Calendar = ({calendarDate, monthTitle, events, handleSave}) => (
   <div>
     <h1 style={{"textAlign":"center"}}>{monthTitle}</h1>
     <Month date={calendarDate} />
-    <Modal>
+    <Modal className="calendar_events" handleSave={handleSave}>
       <EventForm />
     </Modal>
     <h1>Events</h1>
@@ -18,11 +17,5 @@ const Calendar = ({calendarDate, monthTitle, events}) => (
     </ul>
   </div>
 );
-
-Calendar.propTypes = {
-  calendarDate: PropTypes.object.isRequired,
-  monthTitle: PropTypes.string.isRequired,
-  events: PropTypes.array.isRequired
-};
 
 export default Calendar;

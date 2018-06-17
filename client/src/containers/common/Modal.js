@@ -11,6 +11,8 @@ export class CustomModal extends React.Component {
       <Modal
         show={this.props.show}
         title={this.props.title}
+        className={this.props.className}
+        handleSave={this.props.handleSave}
         handleClose={this.props.actions.handleClose}>
         {this.props.children}
       </Modal>
