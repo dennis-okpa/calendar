@@ -38,3 +38,24 @@
 
 .calendar_events .react-calendar {
   font-size: 0.8em; }
+
+.event_pins {
+  padding: 0;
+  margin: 0; }
+  .event_pins li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    position: relative; }
+  .event_pins .btn-toolbar {
+    padding: 0;
+    margin: 0; }
+    .event_pins .btn-toolbar .event_pin {
+      padding: 2px;
+      margin: 0;
+      width: 100%;
+      border: 1px solid #000;
+      border-radius: 3px;
+      display: block;
+      cursor: pointer;
+      text-decoration: none; }

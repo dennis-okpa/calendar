@@ -52,6 +52,31 @@
     font-size: 0.8em;
   }
   .react-calendar {
-    font-size: 0.8em;
+    font-size:0.8em;
+  }
+}
+
+.event_pins {
+  padding:0;
+  margin:0;
+  li {
+    padding:0;
+    margin:0;
+    list-style-type:none;
+    position:relative;
+  }
+  .btn-toolbar {
+    padding:0;
+    margin:0;
+    .event_pin {
+      padding:2px;
+      margin:0;
+      width:100%;
+      border:1px solid #000;
+      border-radius:3px;
+      display:block;
+      cursor:pointer;
+      text-decoration: none;
+    }
   }
 }
