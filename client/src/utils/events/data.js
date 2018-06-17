@@ -5,14 +5,9 @@ export const getDateStamp = date => {
 
 const setEventData = (eventData, element) => {
   const date = new Date(element.date);
-  const time = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
   const stamp = getDateStamp(date);
   if(!eventData.hasOwnProperty(stamp)) eventData[stamp] = [];
-  eventData[stamp].push(
-    Object.assign(element, {
-      time
-    })
-  );
+  eventData[stamp].push(element);
   return eventData;
 };
 

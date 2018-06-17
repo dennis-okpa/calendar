@@ -1,9 +1,9 @@
 import * as actions from '../constants/actions';
 
-export const handleShow = (data) => ({
+export const handleShow = (data, title = "Add") => ({
   type: actions.SHOW_MODAL,
   payload: {
-      title: "Add Event",
+      title,
       data
   }
 });

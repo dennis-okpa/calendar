@@ -1,10 +1,10 @@
 import React from 'react';
 import { ButtonToolbar, Button, OverlayTrigger, Popover } from 'react-bootstrap';
 
-const Event = ({ event, _this }) => {
+const Event = ({ event, _this, editEvent }) => {
   const popoverHoverFocus = (
     <Popover className="popover-trigger-hover-focus" id={"popover-trigger-hover-focus-"+event.id} title={event.summary}>
-      <strong>{event.description}</strong>
+      <strong>{event.description||"No description"}</strong>
     </Popover>
   );
   return (
@@ -16,7 +16,7 @@ const Event = ({ event, _this }) => {
           placement="right"
           overlay={popoverHoverFocus}
         >
-          <a className="event_pin">{event.summary}</a>
+          <a className="event_pin" onClick={(e)=>{editEvent(event)}}>{event.summary}</a>
         </OverlayTrigger>
       </ButtonToolbar>
     </li>
