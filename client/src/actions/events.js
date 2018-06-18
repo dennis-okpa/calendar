@@ -3,6 +3,7 @@ import initialState from '../constants/initialState';
 import { handleShow, handleClose } from './modal';
 import { getAllMonth, create, update } from '../fetch/events';
 import { refresh } from './calendar';
+import {NotificationManager} from 'react-notifications';
 
 const onSuccess = () => (dispatch) => {
   dispatch(handleClose());
@@ -12,12 +13,14 @@ const onSuccess = () => (dispatch) => {
 const insert = (data) => (dispatch) => {
   create(data).then(response => {
     dispatch(onSuccess());
+    NotificationManager.success('Event Added: ' + response.summary);
   });
 };
 
 const amend = (data) => (dispatch) => {
   update(data).then(response => {
     dispatch(onSuccess());
+    NotificationManager.success('Event Updated: ' + response.summary);
   });
 };
 
@@ -25,13 +28,13 @@ export const fetchEvents = (month, year) => dispatch => {
   getAllMonth(month, year).then(data => {
     dispatch({
       type: FETCH_EVENTS,
-      payload: data
+      payload: data || []
     })
   });
 };
 
-export const handleSave = () => (dispatch, getState) => {
-  const { data } = getState().modal;
+export const handleSave = () => (dispatch, state) => {
+  const { data } = state().modal;
   console.log('handleSave', data);
   if(data.id){
     dispatch(amend(data));

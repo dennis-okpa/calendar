@@ -20,7 +20,6 @@ export class Calendar extends React.Component {
       <CalendarDiv
         monthTitle={this.getMonth()}
         calendarDate={this.props.calendarDate}
-        events={this.props.events}
         handleSave={this.props.actions.handleSave} />
     );
   }
@@ -28,14 +27,12 @@ export class Calendar extends React.Component {
 
 Calendar.propTypes = {
   calendarDate: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired,
-  events: PropTypes.array.isRequired
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    calendarDate: state.calendar.date,
-    events: state.events.items
+    calendarDate: state.calendar.date
   };
 }
 

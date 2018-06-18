@@ -12,7 +12,7 @@ const CustomModal = ({show, title, className, handleSave, handleClose, children}
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={handleClose}>Close</Button>
-        <Button bsStyle="primary" onClick={handleSave}>Save changes</Button>
+        <Button bsStyle="primary" onClick={handleSave}>Save</Button>
       </Modal.Footer>
     </Modal>
   );

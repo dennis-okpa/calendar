@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'font-awesome/css/font-awesome.min.css';
 //import 'bootstrap/dist/css/bootstrap.css';
+import 'react-notifications/lib/notifications.css'; // https://www.npmjs.com/package/react-notifications
 import './styles/navbar.css';
 import './styles/navbar-top.css';
 import './styles/index.css';
