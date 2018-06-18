@@ -11,6 +11,7 @@ const EventForm = () => {
         componentClass="textarea"
         label="Summary"
         placeholder="Enter summary"
+        autoFocus
       />
       <InputField
         id="description"
