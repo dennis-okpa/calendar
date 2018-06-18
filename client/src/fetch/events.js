@@ -20,8 +20,6 @@ const request = (data, method) => ({ ...requestBody(data), ...header, method });
 
 export const getAllMonth = (month, year) => fetch('/api/events/all/month?month='+month+'&year='+year).then(response).catch(error);
 
-export const getOne = id => fetch('/api/events/'+id).then(res => res.json()).catch(error);
-
 export const create = data => fetch('/api/events', request(data, "POST")).then(response).catch(error);
 
 export const update = data => fetch('/api/events/' + data.id, request(data, "PUT")).then(response).catch(error);

@@ -11,8 +11,10 @@ export class CustomModal extends React.Component {
       <Modal
         show={this.props.show}
         title={this.props.title}
+        editMode={this.props.editMode}
         className={this.props.className}
         handleSave={this.props.handleSave}
+        handleDelete={this.props.handleDelete}
         handleClose={this.props.actions.handleClose}>
         {this.props.children}
       </Modal>
@@ -23,13 +25,17 @@ export class CustomModal extends React.Component {
 CustomModal.propTypes = {
   show: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  handleSave: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
+  editMode: PropTypes.bool.isRequired
 };
 
 function mapStateToProps(state) {
   return {
     show: state.modal.show,
-    title: state.modal.title
+    title: state.modal.title,
+    editMode: state.modal.data.id !== undefined
   };
 }
 

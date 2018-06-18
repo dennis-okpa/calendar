@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-const CustomModal = ({show, title, className, handleSave, handleClose, children}) => {
+const CustomModal = ({show, title, editMode, className, handleSave, handleClose, handleDelete, children}) => {
   return (
     <Modal show={show} className={className} onHide={handleClose}>
       <Modal.Header closeButton>
@@ -12,6 +12,7 @@ const CustomModal = ({show, title, className, handleSave, handleClose, children}
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={handleClose}>Close</Button>
+        <Button bsStyle="danger" onClick={handleDelete} className={editMode ? "" : "hide"}>Delete</Button>
         <Button bsStyle="primary" onClick={handleSave}>Save</Button>
       </Modal.Footer>
     </Modal>

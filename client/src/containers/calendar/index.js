@@ -20,7 +20,8 @@ export class Calendar extends React.Component {
       <CalendarDiv
         monthTitle={this.getMonth()}
         calendarDate={this.props.calendarDate}
-        handleSave={this.props.actions.handleSave} />
+        handleSave={this.props.actions.handleSave}
+        handleDelete={this.props.actions.handleDelete} />
     );
   }
 }

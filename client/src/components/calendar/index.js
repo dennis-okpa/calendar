@@ -5,11 +5,11 @@ import EventForm from './EventForm';
 import { NotificationContainer } from 'react-notifications';
 
 // Since this component is simple and static, there's no parent container for it.
-const Calendar = ({calendarDate, monthTitle, handleSave}) => (
+const Calendar = ({calendarDate, monthTitle, handleSave, handleDelete}) => (
   <div>
     <h1 style={{"textAlign":"center"}}>{monthTitle}</h1>
     <Month date={calendarDate} />
-    <Modal className="calendar_events" handleSave={handleSave}>
+    <Modal className="calendar_events" handleSave={handleSave} handleDelete={handleDelete}>
       <EventForm />
     </Modal>
     <NotificationContainer/>
