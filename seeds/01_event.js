@@ -1,4 +1,4 @@
-const init_events = require('../db/init_events');
+const init_events = require('../db/events/init_seeds');
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('events').del()

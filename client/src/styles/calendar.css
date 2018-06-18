@@ -65,4 +65,7 @@
   display: block;
   text-decoration: none; }
   .add_event:hover {
-    border-bottom: 1px dashed #000; }
+    border-bottom: 1px dashed #000;
+    text-decoration: none; }
+    .add_event:hover:before {
+      content: "Add Event - "; }

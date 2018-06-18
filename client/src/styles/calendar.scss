@@ -86,5 +86,9 @@
   text-decoration: none;
   &:hover {
     border-bottom:1px dashed #000;
+    text-decoration: none;
+    &:before {
+      content: "Add Event - "
+    }
   }
 }

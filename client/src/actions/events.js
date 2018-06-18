@@ -26,7 +26,7 @@ const amend = (data) => (dispatch) => {
 
 export const fetchEvents = (month, year) => dispatch => {
   getAllMonth(month, year).then((data = []) => {
-    NotificationManager.info(data.length, "Number of Events This Month");
+    NotificationManager.info(data.length, "Number of events");
     dispatch({
       type: FETCH_EVENTS,
       payload: data

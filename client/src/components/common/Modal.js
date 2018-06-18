@@ -11,7 +11,7 @@ const CustomModal = ({show, title, editMode, className, handleSave, handleClose,
         {children}
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={handleClose}>Close</Button>
+        <Button onClick={handleClose}>Cancel</Button>
         <Button bsStyle="danger" onClick={handleDelete} className={editMode ? "" : "hide"}>Delete</Button>
         <Button bsStyle="primary" onClick={handleSave}>Save</Button>
       </Modal.Footer>

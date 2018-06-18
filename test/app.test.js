@@ -24,6 +24,8 @@ describe('CRUD Events', () => {
       .expect(200)
       .then((response) => {
         expect(response.body).to.be.a('array');
+        console.log("response.body", response.body);
+        console.log("fixtures.events", fixtures.events);
         expect(response.body).to.deep.equal(fixtures.events);
         done();
       });
