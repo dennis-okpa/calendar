@@ -19,7 +19,9 @@ export class InputFieldView extends React.Component {
   }
   render() {
     return (
-      <InputField {...this.props} value={this.state.value} onChange={this.handleChange} />
+      <InputField {...this.props} value={this.state.value} onChange={this.handleChange}>
+        {this.props.children}
+      </InputField>
     );
   }
 }

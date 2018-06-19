@@ -4,7 +4,8 @@ export default {
     item: {
       summary: "",
       description: "",
-      date: (new Date()).getTime()
+      date: (new Date()).getTime(),
+      type: 0
     },
     data: {}
   },

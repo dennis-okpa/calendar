@@ -3,23 +3,27 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import EventForm from '../../components/calendar/EventForm';
-import * as actions from '../../actions/events';
+import * as actions from '../../actions/repeat';
 
 export class EventFormView extends React.Component {
+  componentDidMount(){
+    this.props.actions.fetchRepeatOptions();
+  }
   render() {
     return (
-      <EventForm data={this.props.data} />
+      <EventForm repeatOptions={this.props.repeatOptions} />
     );
   }
 }
 
 EventFormView.propTypes = {
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  repeatOptions: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    data: state.modal.data || {}
+    repeatOptions: state.repeat.options || {}
   };
 }
 

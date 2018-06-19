@@ -4,9 +4,9 @@ const knex = require('../db/knex');
 
 const app = require('../app');
 
-const fixtures = require('./fixtures');
+const testData = require('./events_test_data');
 
-describe('CRUD Events', () => {
+describe('Test Events CRUD API', () => {
   before((done) => {
     // run migrations
     knex.migrate.latest()
@@ -22,11 +22,24 @@ describe('CRUD Events', () => {
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200)
-      .then((response) => {
+      .end(function (err, response) {
+        if (err) done(err);
         expect(response.body).to.be.a('array');
-        console.log("response.body", response.body);
-        console.log("fixtures.events", fixtures.events);
-        expect(response.body).to.deep.equal(fixtures.events);
+        expect(response.body).to.deep.equal(testData.events);
+        done();
+      });
+  });
+
+  it('Lists all records within a given month', (done) => {
+    request(app)
+      .get('/api/events/all/month?month=6&year=2018')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end(function (err, response) {
+        if (err) done(err);
+        expect(response.body).to.be.a('array');
+        expect(response.body).to.deep.equal(testData.events);
         done();
       });
   });
@@ -37,9 +50,10 @@ describe('CRUD Events', () => {
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200)
-      .then((response) => {
+      .end(function (err, response) {
+        if (err) done(err);
         expect(response.body).to.be.a('object');
-        expect(response.body).to.deep.equal(fixtures.events[0]);
+        expect(response.body).to.deep.equal(testData.events[0]);
         done();
       });
   });
@@ -47,29 +61,30 @@ describe('CRUD Events', () => {
   it('It creates a record', (done) => {
     request(app)
       .post('/api/events')
-      .send(fixtures.event)
+      .send(testData.event)
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200)
-      .then((response) => {
+      .end(function (err, response) {
+        if (err) done(err);
         expect(response.body).to.be.a('object');
-        fixtures.event.id = response.body.id;
-        expect(response.body).to.deep.equal(fixtures.event);
+        expect(response.body).to.deep.equal(testData.event);
         done();
       });
   });
 
   it('Updates a record', (done) => {
-    fixtures.event.summary = "new Summary";
+    testData.event.summary = "new Summary";
     request(app)
       .put('/api/events/5')
-      .send(fixtures.event)
+      .send(testData.event)
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200)
-      .then((response) => {
+      .end(function (err, response) {
+        if (err) done(err);
         expect(response.body).to.be.a('object');
-        expect(response.body).to.deep.equal(fixtures.event);
+        expect(response.body).to.deep.equal(testData.event);
         done();
       });
   });
@@ -80,7 +95,8 @@ describe('CRUD Events', () => {
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200)
-      .then((response) => {
+      .end(function (err, response) {
+        if (err) done(err);
         expect(response.body).to.be.a('object');
         expect(response.body).to.deep.equal({
           deleted: true

@@ -1,4 +1,4 @@
-module.exports = [
+const repeats = [
   {
     id: 0,
     type: "None"
@@ -20,3 +20,7 @@ module.exports = [
     "type": "Yearly"
   }
 ];
+
+module.exports = {
+  repeats
+};

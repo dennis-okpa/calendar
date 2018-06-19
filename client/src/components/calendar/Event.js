@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonToolbar, Button, OverlayTrigger, Popover } from 'react-bootstrap';
+import { ButtonToolbar, OverlayTrigger, Popover } from 'react-bootstrap';
 
 const Event = ({ event, _this, editEvent }) => {
   const popoverHoverFocus = (

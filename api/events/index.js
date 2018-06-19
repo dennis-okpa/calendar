@@ -10,7 +10,6 @@ function isValidId(req, res, next){
 }
 
 function validEvent(event){
-  console.log("new event", event);
   const hasTitle = typeof event.summary === 'string' && event.summary.trim() !== '';
   const hasValidDate = typeof event.date === 'string' && event.date.trim() !== '';
   if(!hasTitle) console.log("Invalid summary", event.summary);
@@ -20,6 +19,12 @@ function validEvent(event){
 
 router.get('/', (req, res) => {
   queries.getAll().then(events => {
+    res.json(events);
+  })
+});
+
+router.get('/all/month', (req, res) => {
+  queries.getAllMonth(req.query.month, req.query.year).then(events => {
     res.json(events);
   })
 });
@@ -36,8 +41,8 @@ router.get('/:id', isValidId, (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   if(validEvent(req.body)){
-    queries.create(req.body).then(events => {
-      res.json(events[0]);
+    queries.create(req.body).then(event => {
+      res.json(event);
     });
   } else {
     next(new Error('Invalid event'));
@@ -46,8 +51,8 @@ router.post('/', (req, res, next) => {
 
 router.put('/:id', isValidId, (req, res, next) => {
   if(validEvent(req.body)){
-    queries.update(req.params.id, req.body).then(events => {
-      res.json(events[0]);
+    queries.update(req.params.id, req.body).then(event => {
+      res.json(event);
     });
   } else {
     next(new Error('Invalid event'));

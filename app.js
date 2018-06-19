@@ -6,15 +6,15 @@ const logger = require('morgan');
 const app = express();
 
 const events = require('./api/events/');
-const all = require('./api/events/all');
+const repeat = require('./api/repeat/');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/api/events/all', all);
 app.use('/api/events', events);
+app.use('/api/repeat', repeat);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

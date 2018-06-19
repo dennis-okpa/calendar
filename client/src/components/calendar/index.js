@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from '../../containers/common/Modal';
 import Month from '../../containers/calendar/Month';
-import EventForm from './EventForm';
+import EventForm from '../../containers/calendar/EventForm';
 import { NotificationContainer } from 'react-notifications';
 
 // Since this component is simple and static, there's no parent container for it.
