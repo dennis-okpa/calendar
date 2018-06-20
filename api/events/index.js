@@ -24,7 +24,13 @@ router.get('/', (req, res) => {
 });
 
 router.get('/all/month', (req, res) => {
-  queries.getAllMonth(req.query.month, req.query.year).then(events => {
+  queries.getAllMonth(decodeURI(req.query.month), decodeURI(req.query.year)).then(events => {
+    res.json(events);
+  })
+});
+
+router.get('/all/calendar/month', (req, res) => {
+  queries.getAllCalendarMonth(req.query.firstDay, req.query.lastDay).then(events => {
     res.json(events);
   })
 });

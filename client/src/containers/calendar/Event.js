@@ -17,7 +17,7 @@ export class EventView extends React.Component {
   }
   render() {
     return (
-      <Event event={this.props.event} _this={this} editEvent={this.props.actions.editEvent} />
+      <Event event={this.props.event} editEvent={this.props.actions.editEvent} />
     );
   }
 }

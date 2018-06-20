@@ -1,7 +1,7 @@
 import { FETCH_EVENTS } from '../constants/actions';
 import initialState from '../constants/initialState';
 import { handleShow, handleClose } from './modal';
-import { getAllMonth, create, update, remove } from '../fetch/events';
+import { getAllCalendarMonth, create, update, remove } from '../fetch/events';
 import { refresh } from './calendar';
 import {NotificationManager} from 'react-notifications';
 
@@ -24,8 +24,8 @@ const amend = (data) => (dispatch) => {
   });
 };
 
-export const fetchEvents = (month, year) => dispatch => {
-  getAllMonth(month, year).then((data = []) => {
+export const fetchEvents = (firstDay, lastDay) => dispatch => {
+  getAllCalendarMonth(firstDay, lastDay).then((data = []) => {
     NotificationManager.info(data.length, "Number of events");
     dispatch({
       type: FETCH_EVENTS,

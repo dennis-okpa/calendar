@@ -1,12 +1,15 @@
 import initialState from '../constants/initialState';
-import { getMonthData } from '../utils/calendar/month';
+import { getMonthData, getFirstDay, getLastDay } from '../utils/calendar/month';
 
 export default function calendarReducer(state = initialState.calendar, action) {
   switch (action.type) {
     default:
+      const month = getMonthData(state.date);
       return {
         ...state,
-        month: getMonthData(state.date)
+        month,
+        firstDay: getFirstDay(month),
+        lastDay: getLastDay(month)
       };
   }
 }

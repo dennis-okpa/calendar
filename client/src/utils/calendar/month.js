@@ -1,6 +1,6 @@
 import { weekOffSet } from './week';
 
-const getFirstDayOfMonth = (date) => {
+export const getFirstDayOfMonth = (date) => {
   date.setDate(1);
   const day = date.getDay();
   date.setDate(weekOffSet[day]);
@@ -25,4 +25,16 @@ export const getMonthData = (date) => {
     month.push(week);
   }
   return month;
+};
+
+export const getFirstDay = (month) => {
+  const day = month[0][0].day;
+  day.setHours(0,0,0,0);
+  return day.toISOString();
+};
+
+export const getLastDay = (month) => {
+  const day = month[5][6].day;
+  day.setHours(0,0,0,0);
+  return day.toISOString();
 };

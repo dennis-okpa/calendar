@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonToolbar, OverlayTrigger, Popover } from 'react-bootstrap';
 
-const Event = ({ event, _this, editEvent }) => {
+const Event = ({ event, editEvent }) => {
   const popoverHoverFocus = (
     <Popover className="popover-trigger-hover-focus" id={"popover-trigger-hover-focus-"+event.id} title={event.summary}>
       <strong>{event.description||"No description"}</strong>

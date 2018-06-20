@@ -2,11 +2,12 @@ import React from 'react';
 import Form from '../common/Form';
 import InputField from '../../containers/common/InputField';
 import DateField from '../../containers/common/DateField';
+import { getUniqueKey } from '../../utils/common/strings';
 import { Col } from 'react-bootstrap';
 
 const EventForm = ({ repeatOptions }) => {
   const repeatOptionsTags = repeatOptions.map(option=>(
-    <option value={option.id}>{option.type}</option>
+    <option key={getUniqueKey()} value={option.id}>{option.type}</option>
   ));
   return (
     <Form>

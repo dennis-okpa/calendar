@@ -22,6 +22,9 @@ module.exports = {
   getAllMonth(month, year){
     return all().whereRaw('EXTRACT(month FROM "date") = ? AND EXTRACT(year FROM "date") = ?', [month, year]);
   },
+  getAllCalendarMonth(firstDay, lastDay){
+    return all().whereRaw('date BETWEEN ? AND ?', [firstDay, lastDay]);
+  },
   createBatch(events){
     events.forEach(event => {
       this.create(event);
