@@ -30,9 +30,21 @@ router.get('/all/month', (req, res) => {
 });
 
 router.get('/all/calendar/month', (req, res) => {
-  queries.getAllCalendarMonth(req.query.firstDay, req.query.lastDay).then(events => {
-    res.json(events);
-  })
+  const promises = [
+    queries.getNoRepeat(req.query.firstDay, req.query.lastDay),
+    queries.getDaily(req.query.firstDay, req.query.lastDay)
+  ];
+
+  const resultSet = {};
+
+  Promise.all(promises).then((all)=>{
+    resultSet.noRepeat = all[0];
+    resultSet.daily = all[1];
+
+    console.log("resultSet", resultSet);
+
+    res.json(resultSet);
+  });
 });
 
 router.get('/:id', isValidId, (req, res, next) => {

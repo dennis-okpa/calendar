@@ -12,6 +12,8 @@ const getEventData = ({summary, description, date}) => ({
   summary, description, date
 });
 
+const getNoRepeat = (firstDay, lastDay) => all().whereRaw('date BETWEEN ? AND ?', [firstDay, lastDay]);
+
 module.exports = {
   getAll(){
     return all();
@@ -22,8 +24,11 @@ module.exports = {
   getAllMonth(month, year){
     return all().whereRaw('EXTRACT(month FROM "date") = ? AND EXTRACT(year FROM "date") = ?', [month, year]);
   },
-  getAllCalendarMonth(firstDay, lastDay){
-    return all().whereRaw('date BETWEEN ? AND ?', [firstDay, lastDay]);
+  getNoRepeat(firstDay, lastDay){
+    return all().whereRaw('date BETWEEN ? AND ?', [firstDay, lastDay]).andWhere('repeat.id', 0);
+  },
+  getDaily(firstDay, lastDay){
+    return all().whereRaw('date <= ?', [lastDay]).andWhere('repeat.id', 1);
   },
   createBatch(events){
     events.forEach(event => {
