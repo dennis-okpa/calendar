@@ -24,11 +24,11 @@ module.exports = {
   getAllMonth(month, year){
     return all().whereRaw('EXTRACT(month FROM "date") = ? AND EXTRACT(year FROM "date") = ?', [month, year]);
   },
-  getNoRepeat(firstDay, lastDay){
+  getNoRepeats(firstDay, lastDay){
     return all().whereRaw('date BETWEEN ? AND ?', [firstDay, lastDay]).andWhere('repeat.id', 0);
   },
-  getDaily(firstDay, lastDay){
-    return all().whereRaw('date <= ?', [lastDay]).andWhere('repeat.id', 1);
+  getRepeats(lastDay){
+    return all().whereRaw('date <= ?', [lastDay]).andWhereNot('repeat.id', 0);
   },
   createBatch(events){
     events.forEach(event => {

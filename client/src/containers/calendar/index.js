@@ -12,8 +12,8 @@ export class Calendar extends React.Component {
     return date.toLocaleString(locale, { month: "long" });
   };
   componentDidMount(){
-    const { firstDay, lastDay } = this.props.calendar;
-    this.props.actions.fetchEvents(firstDay, lastDay);
+    const { firstDay, lastDay, month } = this.props.calendar;
+    this.props.actions.fetchEvents(firstDay, lastDay, month);
   }
   render() {
     return (

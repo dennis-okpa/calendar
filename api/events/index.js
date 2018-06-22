@@ -31,18 +31,16 @@ router.get('/all/month', (req, res) => {
 
 router.get('/all/calendar/month', (req, res) => {
   const promises = [
-    queries.getNoRepeat(req.query.firstDay, req.query.lastDay),
-    queries.getDaily(req.query.firstDay, req.query.lastDay)
+    queries.getNoRepeats(req.query.firstDay, req.query.lastDay),
+    queries.getRepeats(req.query.lastDay)
   ];
 
   const resultSet = {};
 
   Promise.all(promises).then((all)=>{
-    resultSet.noRepeat = all[0];
-    resultSet.daily = all[1];
-
-    console.log("resultSet", resultSet);
-
+    resultSet.noRepeats = all[0];
+    resultSet.repeats = all[1];
+    resultSet.total = resultSet.noRepeats.length + resultSet.repeats.length;
     res.json(resultSet);
   });
 });

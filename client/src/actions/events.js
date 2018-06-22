@@ -24,13 +24,13 @@ const amend = (data) => (dispatch) => {
   });
 };
 
-export const fetchEvents = (firstDay, lastDay) => dispatch => {
-  getAllCalendarMonth(firstDay, lastDay).then((data = []) => {
-    NotificationManager.info(data.length, "Number of events");
+export const fetchEvents = (firstDay, lastDay, month) => dispatch => {
+  getAllCalendarMonth(firstDay, lastDay).then((data = {}) => {
+    NotificationManager.info(data.total, "Number of events");
     dispatch({
       type: FETCH_EVENTS,
-      payload: data
-    })
+      payload: { ...data, month }
+    });
   });
 };
 

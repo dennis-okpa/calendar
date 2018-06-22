@@ -52,9 +52,22 @@ describe('Test Events CRUD API', () => {
       .expect(200)
       .end(function (err, response) {
         if (err) done(err);
-        expect(response.body).to.be.a('array');
-        console.log(response.body);
-        expect(response.body).to.deep.equal([testData.events[0],testData.events[1]]);
+        expect(response.body).to.be.a('object');
+        expect(response.body).to.deep.equal({
+          noRepeats:
+            [ { id: 1,
+              summary: 'First Event 1',
+              description: 'This is the first event',
+              date: '2018-05-28T16:53:27.782Z',
+            type: 0 } ],
+          repeats:
+            [ { id: 2,
+              summary: 'First Event 2',
+              description: 'This is the first event',
+              date: '2018-06-13T16:53:27.782Z',
+              type: 1 } ],
+          total: 2
+        });
         done();
       });
   });
