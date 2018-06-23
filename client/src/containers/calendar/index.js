@@ -7,30 +7,33 @@ import * as actions from '../../actions/events';
 
 export class Calendar extends React.Component {
   getMonth = () => {
-    const { calendarDate } = this.props;
+    const { date } = this.props.calendar;
     const locale = "en-us";
-    return calendarDate.toLocaleString(locale, { month: "long" });
+    return date.toLocaleString(locale, { month: "long" });
   };
   componentDidMount(){
-     this.props.actions.fetchEvents();
+    const { firstDay, lastDay, month } = this.props.calendar;
+    this.props.actions.fetchEvents(firstDay, lastDay, month);
   }
   render() {
     return (
       <CalendarDiv
         monthTitle={this.getMonth()}
-        calendarDate={this.props.calendarDate} />
+        calendarDate={this.props.calendarDate}
+        handleSave={this.props.actions.handleSave}
+        handleDelete={this.props.actions.handleDelete} />
     );
   }
 }
 
 Calendar.propTypes = {
-  calendarDate: PropTypes.object.isRequired,
+  calendar: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    calendarDate: state.calendar.date
+    calendar: state.calendar
   };
 }
 

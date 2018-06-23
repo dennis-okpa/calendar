@@ -1,8 +1,7 @@
 import React from 'react';
+import Events from './Events';
 
-// Since this component is simple and static, there's no parent container for it.
-const Day = ({ data }) => {
-  const { day, currentMonth, currentDay } = data;
+const getClassName = (currentMonth, currentDay) => {
   let className = 'day';
   if(!currentMonth){
     className += " greyDay";
@@ -10,17 +9,25 @@ const Day = ({ data }) => {
   if(currentDay){
     className += " today";
   }
+  return className;
+};
+
+// Since this component is simple and static, there's no parent container for it.
+const Day = ({ data, events, addEvent }) => {
+  const { day, currentMonth, currentDay } = data;
   return (
-    <td className={className}>
+    <td className={getClassName(currentMonth, currentDay)}>
       <table>
         <thead>
           <tr>
-            <td>{day.getDate()}</td>
+            <td><a className="add_event" data-date={day.getTime()} onClick={addEvent}>{day.getDate()}</a></td>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td />
+            <td>
+              <Events events={events} />
+            </td>
           </tr>
         </tbody>
       </table>

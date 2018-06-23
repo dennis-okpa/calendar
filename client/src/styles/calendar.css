@@ -8,17 +8,65 @@
   width: 100%; }
   .calendar .weekday {
     border: 1px solid #ccc;
-    text-align: center; }
+    text-align: center;
+    width: 200px; }
   .calendar .day {
-    border: 1px solid #ccc; }
+    border: 1px solid #ccc;
+    vertical-align: top;
+    padding-bottom: 10px; }
     .calendar .day table {
       width: 100%; }
       .calendar .day table thead td {
         padding: 2px 1px;
         text-align: right; }
+      .calendar .day table thead a {
+        cursor: pointer; }
       .calendar .day table tbody td {
         height: 50px; }
-  .calendar .greyDay {
-    color: #ccc !important; }
-  .calendar .today {
-    color: #ff0000 !important; }
+
+.today table thead a {
+  color: #ff0000; }
+
+.greyDay table thead a {
+  color: #ccc; }
+
+.calendar_events .modal-dialog, .calendar_events .form-control {
+  font-size: 0.95em; }
+
+.calendar_events label {
+  font-size: 0.8em; }
+
+.calendar_events .react-calendar {
+  font-size: 0.8em; }
+
+.event_pins {
+  padding: 0;
+  margin: 0;
+  height: 100%; }
+  .event_pins li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    position: relative; }
+  .event_pins .btn-toolbar {
+    padding: 0;
+    margin: 0; }
+    .event_pins .btn-toolbar .event_pin {
+      padding: 2px;
+      margin: 0;
+      width: 100%;
+      border: 1px solid #000;
+      border-radius: 3px;
+      display: block;
+      cursor: pointer;
+      text-decoration: none; }
+
+.add_event {
+  width: 100%;
+  display: block;
+  text-decoration: none; }
+  .add_event:hover {
+    border-bottom: 1px dashed #000;
+    text-decoration: none; }
+    .add_event:hover:before {
+      content: "Add Event - "; }

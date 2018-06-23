@@ -1,17 +1,14 @@
 import { FETCH_EVENTS } from '../constants/actions';
+import { getEventData } from '../utils/events/data';
+import initialState from '../constants/initialState';
 
-const initialState = {
-    items: []
-};
-
-export default function(state = initialState, action){
-    console.log('fetch', FETCH_EVENTS);
-    console.log('action', action);
+export default function(state = initialState.events, action){
     switch(action.type){
         case FETCH_EVENTS:
             return {
                 ...state,
-                items: action.payload
+                items: action.payload,
+                data: getEventData(action.payload)
             };
         //case NEW_EVENT:
         default:

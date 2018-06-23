@@ -1,0 +1,1 @@
+"c:\Program Files\PostgreSQL\9.5\bin\psql.exe" -U postgres -d postgres -f recreate-db.sql
