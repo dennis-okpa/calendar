@@ -1,5 +1,3 @@
-import { getMonthData } from '../calendar/month';
-
 export const getDateStamp = date => {
   date.setHours(0, 0, 0, 0);
   return date.getTime();
@@ -40,27 +38,37 @@ const setRepeats = (eventData, element, month) => {
 };
 
 const setDailyEvent = (eventData, element, { day }) => {
-  if(element.type === 1 && compareDate(element.date, day)){
+  if(element.type === 1
+    && compareDate(element.date, day)){
+
     setEventData(eventData, element, getDateStamp(day));
   }
 };
 
 const setWeeklyEvent = (eventData, element, { day }) => {
-  if(element.type === 2 && getDate(element.date).getDay() === day.getDay()){
+  if(element.type === 2
+    && compareDate(element.date, day)
+    && getDate(element.date).getDay() === day.getDay()){
+
     setEventData(eventData, element, getDateStamp(day));
   }
 };
 
 const setMonthlyEvent = (eventData, element, { day }) => {
-  if(element.type === 3 && getDate(element.date).getDate() === day.getDate()){
+  if(element.type === 3
+    && compareDate(element.date, day)
+    && getDate(element.date).getDate() === day.getDate()){
+
     setEventData(eventData, element, getDateStamp(day));
   }
 };
 
 const setYearlyEvent = (eventData, element, { day }) => {
   if(element.type === 4
+    && compareDate(element.date, day)
     && getDate(element.date).getDate() === day.getDate()
     && getDate(element.date).getMonth() === day.getMonth()){
+
     setEventData(eventData, element, getDateStamp(day));
   }
 };

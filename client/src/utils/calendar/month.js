@@ -23,6 +23,8 @@ export const getMonthData = (date) => {
       targetDate.setDate(targetDate.getDate() + 1);
     }
     month.push(week);
+
+    if(!week[6].currentMonth) break;
   }
   return month;
 };
@@ -34,7 +36,9 @@ export const getFirstDay = (month) => {
 };
 
 export const getLastDay = (month) => {
-  const day = month[5][6].day;
+  const weeks = month.length-1;
+  if(weeks < 0) return;
+  const day = month[weeks][6].day;
   day.setHours(0,0,0,0);
   return day.toISOString();
 };
