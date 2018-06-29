@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import CalendarDiv from '../../components/calendar';
 import * as actions from '../../actions/events';
+import * as cal_actions from '../../actions/calendar';
 
 export class Calendar extends React.Component {
   getMonth = () => {
@@ -12,8 +13,7 @@ export class Calendar extends React.Component {
     return date.toLocaleString(locale, { month: "long" });
   };
   componentDidMount(){
-    const { firstDay, lastDay, month } = this.props.calendar;
-    this.props.actions.fetchEvents(firstDay, lastDay, month);
+    this.props.cal_actions.fetchTargetDate();
   }
   render() {
     return (
@@ -28,7 +28,8 @@ export class Calendar extends React.Component {
 
 Calendar.propTypes = {
   calendar: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  cal_actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
@@ -39,7 +40,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(actions, dispatch)
+    actions: bindActionCreators(actions, dispatch),
+    cal_actions: bindActionCreators(cal_actions, dispatch)
   };
 }
 
