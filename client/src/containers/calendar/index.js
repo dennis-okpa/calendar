@@ -12,12 +12,26 @@ export class Calendar extends React.Component {
     const locale = "en-us";
     return date.toLocaleString(locale, { month: "long" });
   };
+  getNextMonth = () => {
+    const { date } = this.props.calendar;
+    const nextDate = new Date(date.getTime());
+    nextDate.setMonth(nextDate.getMonth()+1);
+    return "?year=" + nextDate.getFullYear() + "&month=" + nextDate.getMonth();
+  };
+  getPreviousMonth = () => {
+    const { date } = this.props.calendar;
+    const nextDate = new Date(date.getTime());
+    nextDate.setMonth(nextDate.getMonth()-1);
+    return "?year=" + nextDate.getFullYear() + "&month=" + nextDate.getMonth();
+  };
   componentDidMount(){
     this.props.cal_actions.fetchTargetDate();
   }
   render() {
     return (
       <CalendarDiv
+        previousMonth={this.getPreviousMonth()}
+        nextMonth={this.getNextMonth()}
         monthTitle={this.getMonth()}
         calendarDate={this.props.calendarDate}
         handleSave={this.props.actions.handleSave}

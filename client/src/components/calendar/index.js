@@ -5,8 +5,10 @@ import EventForm from '../../containers/calendar/EventForm';
 import { NotificationContainer } from 'react-notifications';
 
 // Since this component is simple and static, there's no parent container for it.
-const Calendar = ({calendarDate, monthTitle, handleSave, handleDelete}) => (
+const Calendar = ({calendarDate, monthTitle, handleSave, handleDelete, previousMonth, nextMonth}) => (
   <div>
+    <a className="navToNextMonth" href={nextMonth} style={{float:"right"}}>next</a>
+    <a className="navToPreviousMonth" href={previousMonth} style={{float:"left"}}>previous</a>
     <h1 style={{"textAlign":"center"}}>{monthTitle}</h1>
     <Month date={calendarDate} />
     <Modal className="calendar_events" handleSave={handleSave} handleDelete={handleDelete}>
