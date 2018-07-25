@@ -10,7 +10,6 @@ export default function(state = initialState.events, action){
                 items: action.payload,
                 data: getEventData(action.payload)
             };
-        //case NEW_EVENT:
         default:
             return state;
     }

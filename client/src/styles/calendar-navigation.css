@@ -1,0 +1,15 @@
+.monthTitle {
+  text-align: center; }
+  .monthTitle .monthTitleCenter {
+    text-align: center;
+    display: inline-block;
+    margin: auto;
+    position: relative; }
+    .monthTitle .monthTitleCenter .ryms-container {
+      position: absolute;
+      left: -150px; }
+    .monthTitle .monthTitleCenter h1 {
+      margin-top: 0; }
+
+.navToPreviousMonth, .navToNextMonth {
+  margin-top: 10px; }
