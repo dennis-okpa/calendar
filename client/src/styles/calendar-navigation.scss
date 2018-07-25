@@ -1,0 +1,19 @@
+.monthTitle {
+  text-align:center;
+  .monthTitleCenter {
+    text-align:center;
+    display:inline-block;
+    margin:auto;
+    position:relative;
+    .ryms-container {
+      position:absolute;
+      left:-150px;
+    }
+    h1 {
+      margin-top:0;
+    }
+  }
+}
+.navToPreviousMonth, .navToNextMonth {
+  margin-top:10px;
+}

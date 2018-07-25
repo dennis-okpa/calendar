@@ -7,6 +7,12 @@ import * as actions from '../../actions/events';
 import * as cal_actions from '../../actions/calendar';
 
 export class Calendar extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      showMonthPicker: false
+    };
+  }
   getMonth = () => {
     const { date } = this.props.calendar;
     const locale = "en-us";
@@ -24,15 +30,24 @@ export class Calendar extends React.Component {
     nextDate.setMonth(nextDate.getMonth()-1);
     return "?year=" + nextDate.getFullYear() + "&month=" + nextDate.getMonth();
   };
+  handleMonthDatePickerOpen = () => {
+    this.setState({ showMonthPicker : true });
+  };
+  handleMonthDatePickerClose = () => {
+    this.setState({ showMonthPicker : false });
+  };
   render() {
     return (
       <CalendarDiv
         previousMonth={this.getPreviousMonth()}
         nextMonth={this.getNextMonth()}
         monthTitle={this.getMonth()}
-        calendarDate={this.props.calendarDate}
+        calendarDate={this.props.calendar.date}
         handleSave={this.props.actions.handleSave}
-        handleDelete={this.props.actions.handleDelete} />
+        handleDelete={this.props.actions.handleDelete}
+        showMonthPicker={this.state.showMonthPicker}
+        handleMonthDatePickerOpen={this.handleMonthDatePickerOpen}
+        handleMonthDatePickerClose={this.handleMonthDatePickerClose} />
     );
   }
 }
