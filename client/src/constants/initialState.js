@@ -1,16 +1,20 @@
+import { getTargetDate } from '../utils/calendar/month';
+
+const targetDate = getTargetDate();
+
 export default {
   events: {
     items: [],
     item: {
       summary: "",
       description: "",
-      date: (new Date()).getTime(),
+      date: targetDate.getTime(),
       type: 0
     },
     data: {}
   },
   calendar: {
-    date: new Date()
+    date: targetDate
   },
   modal: {
     show: false,

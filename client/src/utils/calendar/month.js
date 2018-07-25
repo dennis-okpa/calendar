@@ -42,9 +42,9 @@ const setDate = (date, oParams) => {
   date.setMonth(oParams.month);
 };
 
-export const getTargetDate = (url) => {
+export const getTargetDate = () => {
   const date = new Date();
-  const params = getParams(url);
+  const params = getParams(window.location.search);
   const defaultParamData = {
     year: date.getFullYear(),
     month: date.getMonth()

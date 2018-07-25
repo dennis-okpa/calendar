@@ -24,9 +24,6 @@ export class Calendar extends React.Component {
     nextDate.setMonth(nextDate.getMonth()-1);
     return "?year=" + nextDate.getFullYear() + "&month=" + nextDate.getMonth();
   };
-  componentDidMount(){
-    this.props.cal_actions.fetchTargetDate();
-  }
   render() {
     return (
       <CalendarDiv
