@@ -55,11 +55,14 @@ const setWeeklyEvent = (eventData, element, { day }) => {
 };
 
 const setMonthlyEvent = (eventData, element, { day }) => {
-  if(element.type === 3
-    && compareDate(element.date, day)
-    && getDate(element.date).getDate() === day.getDate()){
+  if(element.type === 3){
+    setToLastDayOfMonthIfNecessary(element, day);
 
-    setEventData(eventData, element, getDateStamp(day));
+    if(compareDate(element.date, day)
+      && getDate(element.date).getDate() === day.getDate()){
+
+      setEventData(eventData, element, getDateStamp(day));
+    }
   }
 };
 
@@ -82,3 +85,14 @@ const setEventData = (eventData, element, stamp) => {
 const compareDate = (eventDate, day) => getDateStamp(getDate(eventDate)) <= getDateStamp(day);
 
 const getDate = dateString => new Date(dateString);
+
+const setToLastDayOfMonthIfNecessary = (element, calendarDate) => {
+  const lastDayOfMonth = getLastDateOfMonth(calendarDate).getDate();
+  if(!isBeforeOrEqualDayOfMonth(calendarDate, lastDayOfMonth)){
+    element.date.setDate(lastDayOfMonth);
+  }
+};
+
+const isBeforeOrEqualDayOfMonth = (calendarDate, lastDayOfMonth) => calendarDate.getDate() <= lastDayOfMonth;
+
+const getLastDateOfMonth = calendarDate => new Date(calendarDate.getFullYear(), calendarDate.getMonth()+1, 0);
