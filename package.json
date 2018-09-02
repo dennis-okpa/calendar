@@ -5,7 +5,7 @@
   "scripts": {
     "client": "cd client && npm start",
     "server": "set PORT=3005 && node ./bin/www",
-    "start": "concurrently \"npm run client\" \"npm run server\"",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "dev": "nodemon",
     "test": "refresh_db.bat && set NODE_ENV=test && mocha --exit"
   },
