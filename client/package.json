@@ -62,11 +62,11 @@
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
-    "start": "set PORT=3004 && npm-run-all -p watch-css start-js",
+    "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "node scripts/test.js --env=jsdom"
   },
-  "proxy": "http://localhost:3005",
+  "proxy": "http://localhost:8080",
   "homepage": "https://github.com/dennis-okpa/calendar.git",
   "jest": {
     "collectCoverageFrom": [
