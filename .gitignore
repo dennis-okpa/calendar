@@ -3,3 +3,5 @@
 
 # ide directory
 .idea
+sudo
+npm-debug.log
