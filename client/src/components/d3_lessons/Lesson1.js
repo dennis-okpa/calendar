@@ -6,6 +6,7 @@ import "../../styles/graph.css"
 class Graph extends Component {
   render() {
     return <div>
+      <h1>Basic Selection</h1>
       <ul className="items">
         <li>This is an item</li>
         <li>This is an item</li>
