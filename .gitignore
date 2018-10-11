@@ -3,3 +3,7 @@
 
 # ide directory
 .idea
+.env
+sudo
+npm-debug.log
+.nyc_output/

@@ -13,6 +13,7 @@ export const getEventData = events => {
 };
 
 const setNoneRepeatingEvents = (eventData, events) => {
+  if(!events.noRepeats) return;
   events.noRepeats.forEach(function(element) {
     const date = new Date(element.date);
     setEventData(eventData, element, getDateStamp(date));
@@ -21,6 +22,7 @@ const setNoneRepeatingEvents = (eventData, events) => {
 
 const setRepeatingEvents = (eventData, events) => {
   const { repeats, month } = events;
+  if(!repeats) return;
   repeats.forEach(function(element) {
     setRepeats(eventData, element, month);
   });

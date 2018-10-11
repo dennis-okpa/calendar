@@ -1,10 +1,13 @@
 const request = require('supertest');
 const expect = require('chai').expect;
 const knex = require('../db/knex');
+require('dotenv/config');
 
 const app = require('../app');
 
 const testData = require('./events_test_data');
+
+console.log("events.test.js process.env.NODE_ENV", process.env.NODE_ENV);
 
 describe('Test Events CRUD API', () => {
   before((done) => {
