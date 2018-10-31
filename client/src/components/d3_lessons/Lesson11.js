@@ -18,7 +18,10 @@ class Graph extends Component {
     familyTree.append('circle')
       .attr('cx', 200)
       .attr('cy', 200)
-      .attr('r', 50);
+      .attr('r', 50)
+      .style('fill','none')
+      .style('stroke','black')
+      .style('stroke-width','1');
 
     familyTree.append('circle')
       .attr('cx', 600)
