@@ -7,7 +7,7 @@ import YearMonthSelector from 'react-year-month-selector';
 
 // Since this component is simple and static, there's no parent container for it.
 const Calendar = ({calendarDate, monthTitle, handleSave, handleDelete, previousMonth, nextMonth, showMonthPicker, handleMonthDatePickerOpen, handleMonthDatePickerClose}) => (
-  <div>
+  <div style={{ 'width': '100%' }}>
     <a className="navToNextMonth" href={nextMonth} style={{float:"right"}}>next</a>
     <a className="navToPreviousMonth" href={previousMonth} style={{float:"left"}}>previous</a>
     <div className="monthTitle">
