@@ -23,14 +23,6 @@ const HomePage = () => (
   </div>
 );
 
-const CalendarPage = () => (
-	<div className="App">
-		<main role="main" className="container">
-		    <Calendar />
-		</main>
-	</div>
-);
-
 class App extends Component {
   constructor(props, context) {
     super(props, context);
@@ -86,11 +78,11 @@ class App extends Component {
             </NavItem>
           </Nav>
         </SideNav>
-        <main className={this.state.mainClass}>
+        <div className={this.state.mainClass}>
           <Route path="/" exact component={HomePage}/>
-          <Route path="/calendar" component={CalendarPage}/>
+          <Route path="/calendar" component={Calendar}/>
           <Route path="/d3" onSelect={this.onSelect} onToggle={this.onToggle} component={d3Lessons}/>
-        </main>
+        </div>
       </React.Fragment>
     )
   }
