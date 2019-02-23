@@ -3,10 +3,12 @@ import * as d3 from "d3";
 
 class Graph extends Component {
   render() {
-    return <div className="body">
-      <h1>Practice</h1>
-      <div id="familyTree" />
-    </div>
+    return (
+      <div className="body">
+        <h1>Practice</h1>
+        <div id="familyTree" />
+      </div>
+    );
   }
   svgRender(){
     const familyTree = d3.select('#familyTree')
@@ -44,7 +46,7 @@ class Graph extends Component {
       .style('stroke', '#000')
       .style('stroke-width', 5);
 
-    const lineGenerator = d3.line()
+    d3.line()
       .x(250)
       .y(250);
   }
