@@ -14,6 +14,7 @@ import SvgIcon from 'react-icons-kit';
 import { ic_aspect_ratio } from 'react-icons-kit/md/ic_aspect_ratio';
 import {ic_school} from 'react-icons-kit/md/ic_school'
 import { calendar } from 'react-icons-kit/icomoon/calendar';
+import { ic_account_balance } from 'react-icons-kit/md/ic_account_balance';
 
 const HomePage = () => (
   <div className="App">
@@ -21,6 +22,14 @@ const HomePage = () => (
       <p>Home</p>
     </main>
   </div>
+);
+
+const VisualBudget = () => (
+    <div className="App">
+      <main role="main" className="container">
+        <p>VisualBudget</p>
+      </main>
+    </div>
 );
 
 class App extends Component {
@@ -62,6 +71,14 @@ class App extends Component {
                 Dashboard
               </NavText>
             </NavItem>
+            <NavItem eventKey="visualBudget">
+              <NavIcon>
+                <SvgIcon size={20} icon={ic_account_balance}/>
+              </NavIcon>
+              <NavText>
+                Visual Budget
+              </NavText>
+            </NavItem>
             <NavItem eventKey="calendar">
               <NavIcon>
                 <SvgIcon size={20} icon={calendar}/>
@@ -80,6 +97,7 @@ class App extends Component {
         </SideNav>
         <div className={this.state.mainClass}>
           <Route path="/" exact component={HomePage}/>
+          <Route path="/visualBudget" component={VisualBudget}/>
           <Route path="/calendar" component={Calendar}/>
           <Route path="/d3" onSelect={this.onSelect} onToggle={this.onToggle} component={d3Lessons}/>
         </div>
