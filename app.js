@@ -7,6 +7,7 @@ const app = express();
 
 const events = require('./api/events/');
 const repeat = require('./api/repeat/');
+const accounts = require('./api/accounts/');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -15,6 +16,7 @@ app.use(cookieParser());
 
 app.use('/api/events', events);
 app.use('/api/repeat', repeat);
+app.use('/api/accounts', accounts);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
