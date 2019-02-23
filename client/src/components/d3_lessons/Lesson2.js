@@ -5,7 +5,7 @@ class Graph extends Component {
   render() {
     return <div>
       <h1>Simple Data</h1>
-      <p>My name is <span class="name" /></p>
+      <p>My name is <span className="name" /></p>
       <ul className="items">
         <li>This is an item</li>
         <li>This is an item</li>

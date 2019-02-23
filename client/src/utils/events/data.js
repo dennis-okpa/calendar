@@ -94,14 +94,6 @@ export const getDateStamp = date => {
   return date.getTime();
 };
 
-const setToLastDayOfMonthIfNecessary = (element, calendarDate) => {
-  const lastDayOfMonth = getLastDateOfMonth(calendarDate).getDate(), elementDate = new Date(element.date);
-  if(isAfterLastDayOfMonth(elementDate.getDate(), lastDayOfMonth)){
-    elementDate.setDate(lastDayOfMonth);
-    element.date = elementDate.toISOString();
-  }
-};
-
 const isAfterLastDayOfMonth = (eventDay, lastDayOfMonth) => eventDay > lastDayOfMonth;
 
 const getLastDateOfMonth = calendarDate => new Date(calendarDate.getFullYear(), calendarDate.getMonth()+1, 0);

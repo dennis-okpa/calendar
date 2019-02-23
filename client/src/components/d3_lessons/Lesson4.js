@@ -25,7 +25,7 @@ class Graph extends Component {
           cy="250"
           r="40"
           stroke="black"
-          stroke-width="1"
+          strokeWidth="1"
           fill="yellow"
         />
       </svg>
