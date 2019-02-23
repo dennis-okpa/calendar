@@ -17,7 +17,7 @@ class Graph extends Component {
     const barWidth = 35;
     const barOffset = 5;
 
-    const myChart = d3.select('#chart')
+    d3.select('#chart')
       .append('svg')
         .attr('width', width)
         .attr('height', height)
