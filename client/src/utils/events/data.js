@@ -1,8 +1,3 @@
-export const getDateStamp = date => {
-  date.setHours(0, 0, 0, 0);
-  return date.getTime();
-};
-
 export const getEventData = events => {
   let eventData = {};
 
@@ -57,13 +52,18 @@ const setWeeklyEvent = (eventData, element, { day }) => {
 };
 
 const setMonthlyEvent = (eventData, element, { day }) => {
-  if(element.type === 3){
-    setToLastDayOfMonthIfNecessary(element, day);
+  const lastDayOfMonth = getLastDateOfMonth(day).getDate(), elementDate = new Date(element.date);
+  if(element.type === 3 && compareMonth(elementDate, day)){
+    if(isAfterLastDayOfMonth(elementDate.getDate(), lastDayOfMonth)){
+      elementDate.setDate(lastDayOfMonth);
+    }
 
-    if(compareDate(element.date, day)
-      && getDate(element.date).getDate() === day.getDate()){
+    if(elementDate.getDate() === day.getDate()){
 
-      setEventData(eventData, element, getDateStamp(day));
+      setEventData(eventData, {
+        ...element,
+        date: elementDate.toISOString()
+      }, getDateStamp(day));
     }
   }
 };
@@ -81,20 +81,27 @@ const setYearlyEvent = (eventData, element, { day }) => {
 const setEventData = (eventData, element, stamp) => {
   if(!eventData.hasOwnProperty(stamp)) eventData[stamp] = [];
   eventData[stamp].push(element);
-  return eventData;
 };
 
-const compareDate = (eventDate, day) => getDateStamp(getDate(eventDate)) <= getDateStamp(day);
+const compareDate = (eventISODate, calendarDate) => getDateStamp(getDate(eventISODate)) <= getDateStamp(calendarDate);
+
+const compareMonth = (eventDate, calendarDate) => eventDate.getFullYear() <= calendarDate.getFullYear() && eventDate.getMonth() <= calendarDate.getMonth();
 
 const getDate = dateString => new Date(dateString);
 
+export const getDateStamp = date => {
+  date.setHours(0, 0, 0, 0);
+  return date.getTime();
+};
+
 const setToLastDayOfMonthIfNecessary = (element, calendarDate) => {
-  const lastDayOfMonth = getLastDateOfMonth(calendarDate).getDate();
-  if(!isBeforeOrEqualDayOfMonth(calendarDate, lastDayOfMonth)){
-    element.date.setDate(lastDayOfMonth);
+  const lastDayOfMonth = getLastDateOfMonth(calendarDate).getDate(), elementDate = new Date(element.date);
+  if(isAfterLastDayOfMonth(elementDate.getDate(), lastDayOfMonth)){
+    elementDate.setDate(lastDayOfMonth);
+    element.date = elementDate.toISOString();
   }
 };
 
-const isBeforeOrEqualDayOfMonth = (calendarDate, lastDayOfMonth) => calendarDate.getDate() <= lastDayOfMonth;
+const isAfterLastDayOfMonth = (eventDay, lastDayOfMonth) => eventDay > lastDayOfMonth;
 
 const getLastDateOfMonth = calendarDate => new Date(calendarDate.getFullYear(), calendarDate.getMonth()+1, 0);
