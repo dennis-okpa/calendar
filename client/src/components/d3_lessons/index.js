@@ -12,8 +12,9 @@ import Lesson8 from './Lesson8';
 import Lesson9 from './Lesson9';
 import Lesson10 from './Lesson10';
 import Lesson11 from './Lesson11';
+import Lesson12 from './Lesson12';
 
-const lessons = [Lesson1,Lesson2,Lesson3,Lesson4,Lesson5,Lesson6,Lesson7,Lesson8,Lesson9,Lesson10,Lesson11];
+const lessons = [Lesson1,Lesson2,Lesson3,Lesson4,Lesson5,Lesson6,Lesson7,Lesson8,Lesson9,Lesson10,Lesson11,Lesson12];
 
 class d3Lessons extends Component {
   render(){
