@@ -1,1 +1,1 @@
-psql -d postgres -a -f recreate-db.sql
+psql -U postgres -d postgres -f recreate-db.sql
